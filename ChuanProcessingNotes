@@ -1,0 +1,7 @@
+awk 'BEGIN{OFS="\t";FS="\t"}; $3=="gene" {print $0}' HumanChr15intNew_Jan2022.gtf > HumanChr15intNew_Jan2022_GenesOnly.gtf
+
+awk 'BEGIN {OFS="\t";FS="\t"}; { if ($7=="+") {$4=$4-300; $5=$4+600}  else if ($7=="-") {$4=$5-300; $5=$5+300};\
+ print $0}' HumanChr15intNew_Jan2022_GenesOnly.gtf > HumanChr15intNew_Jan2022_GenesOnly_TSSonly.gtf
+
+
+ awk 'BEGIN{OFS="\t";FS="\t"}; {$4=$4-1000;$5=$5+1000;print $0}' HumanChr15intNew_Jan2022_GenesOnly.gtf > HumanChr15intNew_Jan2022_GenesOnly_Extend1KB.gtf
