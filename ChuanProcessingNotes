@@ -7,3 +7,39 @@ awk 'BEGIN {OFS="\t";FS="\t"}; { if ($7=="+") {$4=$4-300; $5=$4+600}  else if ($
  awk 'BEGIN{OFS="\t";FS="\t"}; {$4=$4-1000;$5=$5+1000;print $0}' HumanChr15intNew_Jan2022_GenesOnly.gtf > HumanChr15intNew_Jan2022_GenesOnly_Extend1KB.gtf
 
 bedtools intersect -wa -a SRR11858505_trimmed_22Jan2022_ChrSortMACS_peaks.broadPeak -b GSM4706086_Merge_22Jan2022_ChrSort.ChrSortMACS_peaks.broadPeak > Jurkat_H3K4me3_H3K27ac
+
+bedtools intersect -a HumanChr15intNew_Jan2022_GenesOnly_TSSonly_Filt.gtf -b Jurkat_H3K4me3_H3K27ac > Jurkat_ActivePromoters.gtf
+
+awk 'BEGIN{OFS="\t";FS="\t"} $1 ~/^NC/ && $1!="NC_000024.10" && $1!="012920.1" {print $0}' Jurkat_ActivePromoters.gtf > check
+
+bedtools intersect -v -a check -b CombinedBlacklists.bed > Jurkat_ActivePromoters_Filt.gtf
+
+bedtools intersect -wa -a HumanChr15intNew_Jan2022_GenesOnly_TSSonly_Filt.gtf -b SRR11858505_trimmed_22Jan2022_ChrSortMACS_peaks.broadPeak > Jurkat_TSS_H3K4me3
+
+bedtools intersect -v -a Jurkat_TSS_H3K4me3 -b GSM4706086_Merge_22Jan2022_ChrSort.ChrSortMACS_peaks.broadPeak > Jurkat_PoisedPromoters.gtf
+
+awk 'BEGIN{OFS="\t";FS="\t"} $1 ~/^NC/ && $1!="NC_000024.10" && $1!="012920.1" {print $0}' Jurkat_PoisedPromoters.gtf > check
+
+
+awk 'BEGIN{OFS="\t";FS="\t"} $4>0 {print $0}' HumanChr15intNew_Jan2022_GenesOnly_Extend1KB.gtf > HumanChr15intNew_Jan2022_GenesOnly_Exte
+nd1KB_Filt.gtf
+
+ bedtools intersect -wa -a GSM4706086_Merge_22Jan2022_ChrSort.ChrSortMACS_peaks.broadPeak -b SRR7782877_22Jan2022.filtchrSort.fx.duprMACS
+_peaks.broadPeak > Jurkat_H3K27ac_H3K4me1
+
+bedtools intersect -v -a Jurkat_H3K27ac_H3K4me1 -b SRR11858505_trimmed_22Jan2022_ChrSortMACS_peaks.broadPeak > Jurkat_H3K27ac_H3K4me1_NotH3K4me3
+
+bedtools intersect -v -a Jurkat_H3K27ac_H3K4me1_NotH3K4me3 -b HumanChr15intNew_Jan2022_GenesOnly_Extend1KB_Filt.gtf > Jurkat_ActiveEnhancers.gtf
+
+awk 'BEGIN{OFS="\t";FS="\t"} $1 ~/^NC/ && $1!="NC_000024.10" && $1!="NC_012920.1" {print $0}' Jurkat_ActiveEnhancers.gtf > check
+
+bedtools intersect -v -a check -b CombinedBlacklists.bed > Jurkat_ActiveEnhancers_Filt.gtf
+
+awk 'BEGIN{OFS="\t";FS="\t"} {print $1,$4,$5,"Jurkat_ActivePromoter",0,$7}' Jurkat_ActivePromoters_Filt.gtf > Jurkat_ActivePromoters_Filt.bed
+
+awk 'BEGIN{OFS="\t";FS="\t"} {print $1,$4,$5,"Jurkat_PoisedPromoter",0,$7}' Jurkat_PoisedPromoters_Filt.gtf > Jurkat_PoisedPromoters_Filt.bed
+
+awk 'BEGIN{OFS="\t";FS="\t"} {print $1,$4,$5,"Jurkat_ActiveEnhancer",0,$7}' Jurkat_ActiveEnhancers_Filt.gtf > Jurkat_ActiveEnhancers_Filt.bed
+
+mv Jurkat_ActiveEnhancers_Filt.gtf Jurkat_ActiveEnhancers_Filt.bed
+
