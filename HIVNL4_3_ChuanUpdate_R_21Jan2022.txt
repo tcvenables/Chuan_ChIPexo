@@ -1,0 +1,18 @@
+NC_000015.10	BestRefSeq	gene	72353596	72363304	.	-	.	gene_id "HIV1_NL4.3"; transcript_id "NL4.3"; gene "HIV1_NL4.3";
+NC_000015.10	BestRefSeq	gene	72353596	72354229	.	-	.	gene_id "3_LTR"; transcript_id "3_LTR"; gene "3_LTR";
+NC_000015.10	BestRefSeq	gene	72353998	72354518	.	-	.	gene_id "Nef"; transcript_id "Nef"; gene "Nef";
+NC_000015.10	BestRefSeq	gene	72354520	72357084	.	-	.	gene_id "Env"; transcript_id "Env"; gene "Env";
+NC_000015.10	BestRefSeq	gene	72354662	72354936	.	-	.	gene_id "Rev exon 2"; transcript_id "Rev exon2"; gene "Rev exon2";
+NC_000015.10	BestRefSeq	gene	72354891	72354936	.	-	.	gene_id "Tat exon 2"; transcript_id "Tat exon2"; gene "Tat exon2";
+NC_000015.10	BestRefSeq	gene	72357099	72357244	.	-	.	gene_id "Vpu"; transcript_id "Vpu"; gene "Vpu";
+NC_000015.10	BestRefSeq	gene	72357261	72357475	.	-	.	gene_id "Tat exon 1"; transcript_id "Tat exon1"; gene "Tat exon 1";
+NC_000015.10	BestRefSeq	gene	72357261	72357345	.	-	.	gene_id "Rev exon 1"; transcript_id "Rev exon 1"; gene "Rev exon 1";
+NC_000015.10	BestRefSeq	gene	72357456	72357746	.	-	.	gene_id "Vpr"; transcript_id "Vpr"; gene "Vpr";
+NC_000015.10	BestRefSeq	gene	72357686	72358264	.	-	.	gene_id "Vif"; transcript_id "Vif"; gene "Vif";
+NC_000015.10	BestRefSeq	gene	72358209	72361220	.	-	.	gene_id "Pol"; transcript_id "Pol"; gene "Pol";
+NC_000015.10	BestRefSeq	gene	72361013	72362515	.	-	.	gene_id "Gag"; transcript_id "Gag"; gene "Gag";
+NC_000015.10	BestRefSeq	gene	72362443	72362585	.	-	.	gene_id "Nuc2"; transcript_id "Nuc2"; gene "Nuc2";
+NC_000015.10	BestRefSeq	gene	72362671	72363304	.	-	.	gene_id "5_LTR"; transcript_id "5_LTR"; gene "5_LTR";
+NC_000015.10	BestRefSeq	gene	72362709	72362853	.	-	.	gene_id "Nuc1"; transcript_id "Nuc1"; gene "Nuc1";
+NC_000015.10	BestRefSeq	gene	72362850	72362850	.	-	.	gene_id "TSS"; transcript_id "TSS"; gene "TSS";
+NC_000015.10	BestRefSeq	gene	72363105	72363265	.	-	.	gene_id "Nuc0"; transcript_id "Nuc0"; gene "Nuc0";
