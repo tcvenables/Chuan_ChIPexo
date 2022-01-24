@@ -5,3 +5,5 @@ awk 'BEGIN {OFS="\t";FS="\t"}; { if ($7=="+") {$4=$4-300; $5=$4+600}  else if ($
 
 
  awk 'BEGIN{OFS="\t";FS="\t"}; {$4=$4-1000;$5=$5+1000;print $0}' HumanChr15intNew_Jan2022_GenesOnly.gtf > HumanChr15intNew_Jan2022_GenesOnly_Extend1KB.gtf
+
+bedtools intersect -wa -a SRR11858505_trimmed_22Jan2022_ChrSortMACS_peaks.broadPeak -b GSM4706086_Merge_22Jan2022_ChrSort.ChrSortMACS_peaks.broadPeak > Jurkat_H3K4me3_H3K27ac
