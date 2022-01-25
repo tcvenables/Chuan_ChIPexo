@@ -14,10 +14,10 @@ pu2=${bw1/.bdg/NORM.bdg}
 pu3=${pu2/.bdg/sort.bdg}
 pu4=${pu3/.bdg/.bw}
 sf1=$(awk '{sum+=(($3-$2)*$4)} END {print sum}' $bw1)
-sf2=$(awk "BEGIN {printf \"%.2f\n\", 948239572/$sf1}")
+sf2=$(awk "BEGIN {printf \"%.2f\n\", 456016970/$sf1}")
 awk -v sf=$sf2 '{printf $1"\t"$2"\t"$3"\t" "%3.2f\n", $4*sf}' $bw1 > $pu2
 sort -k1,1 -k2,2n $pu2 > $pu3
-bedGraphToBigWig $pu3 GRCh38_RefseqGenomeSizesPlusHIV.txt $pu4
+bedGraphToBigWig $pu3 GRCh38_JurkatHivIntRefseqGenomeSizes.txt $pu4
 done
 
 
