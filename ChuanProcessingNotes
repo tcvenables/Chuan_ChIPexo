@@ -8,7 +8,7 @@ awk 'BEGIN {OFS="\t";FS="\t"}; { if ($7=="+") {$4=$4-300; $5=$4+600}  else if ($
 
 bedtools intersect -wa -a SRR11858505_trimmed_22Jan2022_ChrSortMACS_peaks.broadPeak -b GSM4706086_Merge_22Jan2022_ChrSort.ChrSortMACS_peaks.broadPeak > Jurkat_H3K4me3_H3K27ac
 
-bedtools intersect -a HumanChr15intNew_Jan2022_GenesOnly_TSSonly_Filt.gtf -b Jurkat_H3K4me3_H3K27ac > Jurkat_ActivePromoters.gtf
+bedtools intersect -wa -a HumanChr15intNew_Jan2022_GenesOnly_TSSonly_Filt.gtf -b Jurkat_H3K4me3_H3K27ac > Jurkat_ActivePromoters.gtf
 
 awk 'BEGIN{OFS="\t";FS="\t"} $1 ~/^NC/ && $1!="NC_000024.10" && $1!="012920.1" {print $0}' Jurkat_ActivePromoters.gtf > check
 
